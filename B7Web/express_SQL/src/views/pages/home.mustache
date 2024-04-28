@@ -1,5 +1,14 @@
 {{>partials/header}}
 
+<h2>Users</h2>
+<ul>
+{{#users}}
+    <li>{{name}} - {{birth_date}}</li>
+{{/users}}
+</ul>
+
+<hr/>
+
 Opa {{name}} {{lastName}}, tudo bem?
 {{#showOld}}
     Como vai a vida?
