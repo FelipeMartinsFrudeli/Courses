@@ -1,9 +1,26 @@
 {{>partials/header}}
 
+<fieldset>
+    <legend>New User</legend>
+    <form method="POST" action="/user/create">
+        <input type="text" name="name" placeholder="Type your name" /><br/><br/>
+        <input type="text" name="birth_date" placeholder="Type your birth date" /><br/><br/>
+        <input type="submit" value="Create user" />
+    </form>
+</fieldset>
+
 <h2>Users</h2>
 <ul>
 {{#users}}
-    <li>{{name}} - {{birth_date}}</li>
+    <li>
+        {{name}} - {{birth_date}}
+        <a href="/users/{{ id }}/addAge">+</a>
+        <a href="/users/{{ id }}/decreaseAge">-</a>
+
+        <form action="/user/{{ id }}/delete" method="POST">
+            <button type="submit">Delete</button>
+        </form>
+    </li>
 {{/users}}
 </ul>
 

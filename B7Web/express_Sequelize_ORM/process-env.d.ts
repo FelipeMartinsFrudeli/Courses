@@ -6,6 +6,11 @@ declare global {
             MYSQL_USER: string;
             MYSQL_PASSWORD: string;
             MYSQL_PORT: string;
+
+            PG_DB: string;
+            PG_USER: string;
+            PG_PASSWORD: string;
+            PG_PORT: string;
         }
     }
 }
