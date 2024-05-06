@@ -1,12 +1,27 @@
 {{>partials/header}}
 
-Opa {{name}} {{lastName}}, tudo bem?
-{{#showOld}}
-    Como vai a vida?
-{{/showOld}}
-{{^showOld}}
-    Beleza?
-{{/showOld}}
+<fieldset>
+    <legend>Create new user</legend>
+    <form method="POST" action="/new-user">
+        <input type="text" name="firstName" placeholder="Type your Name" />
+        <input type="text" name="lastName" placeholder="Type your last Name" />
+        <input type="text" name="email" placeholder="Type your Email" />
+        <input type="text" name="age" placeholder="Type your Age" />
+        <input type="text" name="interests" placeholder="Type your Interests" />
+        <button type="submit">Create</button>
+    </form>
+</fieldset>
+
+<hr/>
+
+<h2>Users</h2>
+<ul>
+{{#users}}
+    <li>
+        {{{ name }}}
+    </li>
+{{/users}}
+</ul>
 
 <hr/>
 <h2>Produtos</h2>

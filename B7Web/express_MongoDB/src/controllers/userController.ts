@@ -1,4 +1,5 @@
 import { Request, Response } from 'express';
+import { createUser } from '../models/User';
 
 export const nome = (req: Request, res: Response) => {
     let nome: string = req.query.nome as string;
@@ -30,3 +31,18 @@ export const idadeAction = (req: Request, res: Response) => {
         mostrarIdade
     });
 };
+
+export const addUserAction = (req: Request, res: Response) => {
+
+    createUser({
+        name: {
+            firstName: req.body.firstName,
+            lastName: req.body.lastName
+        },
+        email: req.body.email,
+        age: req.body.age,
+        interests: req.body.interests.split(" ")
+    });
+
+    res.redirect('/');
+}

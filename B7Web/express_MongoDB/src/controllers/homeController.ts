@@ -1,8 +1,12 @@
 import { Request, Response } from 'express';
 
 import { Product } from '../models/Product';
+import User from '../models/User';
 
-export const home = (req: Request, res: Response)=>{
+export const home = async (req: Request, res: Response)=>{
+    
+    let users = await User.find({});
+    
     let age: number = 90;
     let showOld: boolean = false;
 
@@ -19,6 +23,7 @@ export const home = (req: Request, res: Response)=>{
         showOld,
         products: list,
         expensives: expensiveList,
-        frasesDoDia: []
+        frasesDoDia: [],
+        users
     });
 };
