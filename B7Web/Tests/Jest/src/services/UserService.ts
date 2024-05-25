@@ -2,7 +2,7 @@ import { User } from "../models/User";
 import bcrypt from "bcrypt";
 
 export const createUser = async (email: string, password: string) => {
-    
+
     let hasUser = await User.findOne({ where: { email } });
     if (hasUser) {
         return new Error('Email already has created');
